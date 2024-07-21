@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Login from './components/Login';
 import TaskList from './components/TaskList';
 import { loginUser, getTasks, createTask } from './api';
-import TestBanner from './components/Banner'
+import Header from './components/Header';
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -43,13 +43,20 @@ function App() {
   };
 
   return (
-    <div className="App">
-        <TestBanner />
-      {!token ? (
-        <Login onLogin={handleLogin} />
-      ) : (
-        <TaskList tasks={tasks} onCreateTask={handleCreateTask} />
-      )}
+    <div>
+        <Header />
+      <div class="md:container md:mx-auto">
+        <div>
+
+          <div>
+            {!token ? (
+              <Login onLogin={handleLogin} />
+            ) : (
+              <TaskList tasks={tasks} onCreateTask={handleCreateTask} />
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
