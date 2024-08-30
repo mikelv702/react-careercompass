@@ -10,7 +10,7 @@ function Header() {
 
         <div className="flex justify-between items-center">
 
-          <div className="text-white font-bold text-xl">My Website</div>
+          <div className="text-white font-bold text-xl">EngineerHub:CareerCompass</div>
 
           <div className="hidden md:flex space-x-4">
 

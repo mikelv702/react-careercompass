@@ -1,0 +1,1 @@
+docker save careercompass-react > /tmp/careercompass-react.tar

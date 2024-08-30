@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:8000'; // Replace with your actual API URL
+const API_URL = 'http://docker03.lab.engineerhub.xyz:8001'; // Replace with your actual API URL
 
 export const loginUser = async (username, password) => {
   const response = await fetch(`${API_URL}/token`, {
@@ -17,7 +17,7 @@ export const loginUser = async (username, password) => {
 };
 
 export const getTasks = async (token) => {
-  const response = await fetch(`${API_URL}/quicktask/`, {
+  const response = await fetch(`${API_URL}/task/`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
@@ -31,7 +31,7 @@ export const getTasks = async (token) => {
 };
 
 export const createTask = async (token, description) => {
-  const response = await fetch(`${API_URL}/quicktask/`, {
+  const response = await fetch(`${API_URL}/task/`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
