@@ -14,9 +14,9 @@ function Header() {
 
           <div className="hidden md:flex space-x-4">
 
-            <a href="/home" className="text-white hover:text-gray-300">Home</a>
+            <a href="/" className="text-white hover:text-gray-300">Home</a>
 
-            <a href="/" className="text-white hover:text-gray-300">About</a>
+            <a href="/tasks" className="text-white hover:text-gray-300">Tasks</a>
 
             <a href="/" className="text-white hover:text-gray-300">Services</a>
 

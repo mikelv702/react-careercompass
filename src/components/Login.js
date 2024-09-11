@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 function Login({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -43,7 +44,12 @@ function Login({ onLogin }) {
       >
         Login
       </button>
+      <a href='/login'><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+      Github Login
+    </button></a>
     </form>
+
+
   );
 }
 

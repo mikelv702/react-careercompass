@@ -13,7 +13,7 @@ export const loginUser = async (username, password) => {
   if (!response.ok) {
     throw new Error('Login failed');
   }
-  console.log(`${API_URL}`)
+  console.log('Logging in....')
   return response.json();
 };
 
@@ -23,11 +23,13 @@ export const getTasks = async (token) => {
       'Authorization': `Bearer ${token}`,
     },
   });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch tasks');
+  if (response.status === 401){
+    throw new Error('Unauthorized');
   }
-  console.log(`${API_URL}`)
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  console.log('Getting tasks...')
   return response.json();
 };
 
@@ -44,6 +46,6 @@ export const createTask = async (token, description) => {
   if (!response.ok) {
     throw new Error('Failed to create task');
   }
-  console.log(`${API_URL}`) 
+  console.log('Creating task...')
   return response.json();
 };
