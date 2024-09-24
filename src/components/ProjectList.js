@@ -38,7 +38,7 @@ function ProjectList({ projects }) {
           {projects.map((project) => (
             <tr key={project.id}>
                 <td>
-                <Link to={`/project/${project.id}`} className="text-blue-600 hover:text-blue-900">
+                <Link to={`/projects/${project.id}`} className="text-blue-600 hover:text-blue-900">
                     {project.title}
                 </Link>
                 </td>
