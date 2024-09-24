@@ -49,3 +49,59 @@ export const createTask = async (token, description) => {
   console.log('Creating task...')
   return response.json();
 };
+
+export const getUserProjects = async (token) => {
+  const response = await fetch(`${API_URL}/projects`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+  if (response.status === 401){
+    throw new Error('Unauthorized');
+  }
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  console.log('Getting projects...')
+  return response.json();
+}
+
+export const getUserProject = async (token, projectId) => {
+  const response = await fetch(`${API_URL}/projects/${projectId}`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+  if (response.status === 401){
+    throw new Error('Unauthorized');
+  }
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  console.log('Getting project...')
+  return response.json();
+}
+
+export const createProject = async (token,title, description, estimated_due, custom_status, completed, status_note) => {
+  const response = await fetch(`${API_URL}/projects`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ 
+      'title':title, 
+      'description':description, 
+      'estimated_due':estimated_due,
+      'custom_status':custom_status,
+      'completed': completed, 
+      'status_note': status_note
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to create task');
+  }
+  console.log('Creating task...')
+  return response.json();
+};

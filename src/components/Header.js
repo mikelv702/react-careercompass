@@ -18,7 +18,7 @@ function Header() {
 
             <a href="/tasks" className="text-white hover:text-gray-300">Tasks</a>
 
-            <a href="/" className="text-white hover:text-gray-300">Services</a>
+            <a href="/projects" className="text-white hover:text-gray-300">Projects</a>
 
             <a href="/" className="text-white hover:text-gray-300">Contact</a>
 
