@@ -51,7 +51,7 @@ export const createTask = async (token, description) => {
 };
 
 export const getUserProjects = async (token) => {
-  const response = await fetch(`${API_URL}/projects`, {
+  const response = await fetch(`${API_URL}/projects/`, {
     headers: {
       'Authorization': `Bearer ${token}`,
     },
@@ -83,7 +83,7 @@ export const getUserProject = async (token, projectId) => {
 }
 
 export const createProject = async (token,title, description, estimated_due, custom_status, completed, status_note) => {
-  const response = await fetch(`${API_URL}/projects`, {
+  const response = await fetch(`${API_URL}/projects/`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
