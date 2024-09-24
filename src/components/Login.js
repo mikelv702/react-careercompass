@@ -11,6 +11,7 @@ function Login({ onLogin }) {
   };
 
   return (
+    <div>
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label htmlFor="username" className="block text-sm font-medium text-gray-700">
@@ -44,12 +45,11 @@ function Login({ onLogin }) {
       >
         Login
       </button>
-      <a href='/login'><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-      Github Login
-    </button></a>
     </form>
-
-
+    <a href='/login'><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+          Github Login
+    </button></a>
+    </div>
   );
 }
 
