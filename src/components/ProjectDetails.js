@@ -1,7 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { deleteProject } from '../api/api';
+import { useNavigate } from 'react-router-dom';
 
 function ProjectDetails({ project }) {
+  const navigate = useNavigate();
+  const [token, setToken] = useState(localStorage.getItem('token'));
+
+  const handleDeleteProject = async (projectId) => {
+    try {
+      console.log(projectId)
+      deleteProject(token, projectId)
+      navigate("/projects")
+    } catch (err) {
+      console.log(err)
+    }
+
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -37,11 +52,16 @@ function ProjectDetails({ project }) {
               <dt className="text-sm font-medium text-gray-500">Project Status Note</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{project.status_note}</dd>
             </div>
+            <div>
+              <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded' onClick={() => handleDeleteProject(project.id)}>
+                Delete Project
+              </button>
+            </div>
           </dl>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ProjectDetails;

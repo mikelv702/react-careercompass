@@ -100,8 +100,46 @@ export const createProject = async (token,title, description, estimated_due, cus
   });
 
   if (!response.ok) {
-    throw new Error('Failed to create task');
+    throw new Error('Failed to create Project');
   }
-  console.log('Creating task...')
+  console.log('Creating Project...')
   return response.json();
+};
+
+export const deleteProject = async (token, projectId) => {
+  const response = await fetch(`${API_URL}/projects/${projectId}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+  if (!response.ok) {
+    throw new Error('Failed to delete project');
+  }
+  console.log('Deleting Project...')
+  return response.json();
+};
+
+export const updateProject = async (token, projectId, updatedFields) => {
+  try {
+    const response = await fetch(`${API_URL}/projects/${projectId}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedFields),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data; // Assuming the API returns the updated project
+
+  } catch (error) {
+    console.error('Error updating project:', error);
+    throw error;
+  }
 };

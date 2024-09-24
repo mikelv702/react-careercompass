@@ -24,6 +24,9 @@ import GitHubAuthHandler from "./pages/GithubAuth";
 import GitHubLoginInitiator from "./pages/Login";
 import CompletedTasks from "./pages/CompletedTasks";
 import ProjectsPage from "./pages/Projects";
+import ProjectDetailsPage from "./pages/ProjectDetailsPage";
+import ProjectDetailsUpdate from "./components/ProjectDetailsUpdate";
+
 
 export default function App() {
   return (
@@ -33,6 +36,8 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="tasks" element={<CompletedTasks />} />
           <Route path="projects" element={<ProjectsPage />} />
+          <Route path="projects/:projectId" element={<ProjectDetailsPage />} />
+          <Route path="projectsUpdate/:projectId" element={<ProjectDetailsUpdate />} />
           <Route path="login" element={<GitHubLoginInitiator />} />
           <Route path="github-auth" element={<GitHubAuthHandler />} />
         </Route>

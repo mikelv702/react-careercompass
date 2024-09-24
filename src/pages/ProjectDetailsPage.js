@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Login from '../components/Login';
 import { loginUser, getUserProject } from '../api/api';
 import ProjectDetails from '../components/ProjectDetails'
+import ProjectDetailsUpdate from '../components/ProjectDetailsUpdate';
 import Header from '../components/Header';
 
 function ProjectDetailsPage() {
@@ -75,7 +76,7 @@ function ProjectDetailsPage() {
             {!token ? (
               <Login onLogin={handleLogin} />
             ) : (
-              <ProjectDetails project={project} />
+              <ProjectDetailsUpdate project={project} />
             )}
           </div>
         </div>

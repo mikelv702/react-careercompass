@@ -3,6 +3,7 @@ import Login from '../components/Login';
 import { loginUser, getUserProjects } from '../api/api';
 import ProjectList from '../components/ProjectList';
 import Header from '../components/Header';
+import { CreateProjectButton } from '../components/CreateProjectModal';
 
 function ProjectsPage() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -37,14 +38,6 @@ function ProjectsPage() {
       }
   };
 
-//   const handleCreateProject = async (taskDescription) => {
-//       try {
-//           await createTask(token, taskDescription);
-//           fetchTasks();
-//       } catch (error) {
-//           console.error('Failed to create task:', error);
-//       }
-//   };
 
   return (
     <div>
@@ -56,7 +49,10 @@ function ProjectsPage() {
             {!token ? (
               <Login onLogin={handleLogin} />
             ) : (
+              <div>
+              <CreateProjectButton token={token} />
               <ProjectList projects={projects} />
+              </div>
             )}
           </div>
         </div>
